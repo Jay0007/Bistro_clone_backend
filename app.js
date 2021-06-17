@@ -1,4 +1,4 @@
-import history from 'connect-history-api-fallback';
+const history = require('connect-history-api-fallback');
 
 const path = require('path');
 /* eslint-disable no-console */
