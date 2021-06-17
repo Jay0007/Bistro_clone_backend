@@ -2,7 +2,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const validation = require('../models/validation');
-const Userdetails = require('../models/userdetails');
 
 const maxAge = 60 * 60;
 const createToken = (id) => jwt.sign({ id }, process.env.tokenKey);
@@ -22,15 +21,9 @@ module.exports.registration_user = async (req, res) => {
     } else {
       const Validation = new validation.valSchema(req.body);
       Validation.save()
-        .then(() => {
-          const userdetail = new Userdetails({
-            email: req.body.email,
-          });
-          userdetail.save().catch((err) => {
-            res.send(err);
-          });
+        .then((result) => {
           const token = createToken(req.body.email);
-          res.status(200).cookie('authtoken', token, { httpOnly: true, maxAge }).send(token);
+          res.status(200).cookie('authtoken', token, { httpOnly: true, maxAge }).send(result);
         })
         .catch((err) => {
           res.send(err);

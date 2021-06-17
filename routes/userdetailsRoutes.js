@@ -12,9 +12,8 @@ const Userdetails = require('../models/userdetails');
 //   return router
 // }
 
-router.get('/user/:id', (req, res) => {
-  Userdetails.find()
-    .sort({ createdAt: 1 })
+router.get('/getuserdetails', (req, res) => {
+  Userdetails.findOne({ email: req.query.email })
     .then((result) => {
       res.send(result);
     })
@@ -23,10 +22,32 @@ router.get('/user/:id', (req, res) => {
     });
 });
 
-router.post('/user/:id', (req, res) => {
+router.post('/userdetails', (req, res) => {
   const userdetail = new Userdetails(req.body);
   userdetail
     .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
+router.put('/updateuserdetails', (req, res) => {
+  Userdetails.updateOne(
+    {
+      email: req.body.email,
+    },
+    {
+      $set: {
+        name: req.body.name,
+        promotionreceive: req.body.promotionreceive,
+        mobile: req.body.mobile,
+        cardpay: req.body.cardpay,
+      },
+    }
+  )
     .then((result) => {
       res.send(result);
     })

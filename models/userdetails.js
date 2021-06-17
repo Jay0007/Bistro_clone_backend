@@ -9,14 +9,15 @@ const userDetailsSchema = new Schema({
   email: {
     type: String,
   },
-  phone: {
+  mobile: {
     type: Number,
   },
-  payment: {
+  cardpay: {
     type: String,
     enum: ['cash on delivery', 'credit/debit card'],
+    default: 'credit/debit card',
   },
-  promotions: {
+  promotionreceive: {
     type: Boolean,
     default: false,
   },

@@ -2,7 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 // eslint-disable-next-line no-unused-vars
-const dotenv = require('dotenv').config();
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const validationController = require('../controllers/validationController');
 
