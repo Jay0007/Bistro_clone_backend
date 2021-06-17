@@ -43,7 +43,7 @@ app.use(require('./routes/menuRoutes'));
 app.use(require('./routes/userdetailsRoutes'));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
+  res.sendFile(path.join(__dirname, './dist/index.html'));
 });
 
 app.set('view engine', 'ejs');
