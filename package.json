@@ -1,7 +1,11 @@
 {
+  "version": "1.0.0",
   "scripts": {
-    "start": "node ./dist/app.js",
-    "build": "mkdir dist && babel ./ -s -d dist"
+    "start": "node ./build/app.js",
+    "build": "mkdir build && babel ./ -s -d build"
+  },
+  "engines": {
+    "node": "12.x"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
