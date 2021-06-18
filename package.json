@@ -1,13 +1,8 @@
 {
-  "version": "1.0.0",
   "main": "app.js",
   "scripts": {
     "start": "node ./build/app.js",
     "build": "babel ./ --out-dir ./build"
-  },
-  "engines": {
-    "node": "12.x",
-    "npm": "7.x"
   },
   "dependencies": {
     "@babel/runtime": "^7.14.6",
