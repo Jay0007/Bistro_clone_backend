@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.resolve(__dirname, '../dist'), { maxAge: '1y', etag: false }));
+app.use(express.static(path.resolve(__dirname, './dist'), { maxAge: '1y', etag: false }));
 app.use(history());
 
 const morgan = require('morgan');
@@ -35,7 +35,7 @@ const mongoose = require('mongoose');
 const dbURL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.ac1hu.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 mongoose
   .connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(process.env.PORT || 8000)) // listening to requests only after the database connection is complete
+  .then(() => app.listen(process.env.PORT || 3000)) // listening to requests only after the database connection is complete
   .catch((err) => console.log(err));
 
 app.use(require('./routes/validationRoutes'));

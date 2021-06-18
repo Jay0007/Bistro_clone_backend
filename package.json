@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./dist/app.js",
+    "build": "mkdir dist && babel ./ -s -d dist"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
