@@ -3,7 +3,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./build/app.js",
-    "build": "babel ./ --out-dir build"
+    "build": "babel ./ --out-dir ./build"
   },
   "engines": {
     "node": "12.x",
