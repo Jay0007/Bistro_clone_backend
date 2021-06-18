@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.resolve(__dirname, './dist'), { maxAge: '1y', etag: false }));
+app.use(express.static(path.resolve(__dirname, '../dist'), { maxAge: '1y', etag: false }));
 app.use(history());
 
 const morgan = require('morgan');
