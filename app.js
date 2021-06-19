@@ -9,6 +9,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, './dist'), { maxAge: '1y', etag: false }));
 app.use(history());
+require('babel-register')({
+  presets: ['es2015'],
+});
 
 const morgan = require('morgan');
 // Premade middleware -> Logs all the requests to the console
