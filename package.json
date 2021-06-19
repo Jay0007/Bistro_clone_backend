@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node ./build/app.js",
-    "build": "babel ./ --out-dir ./build"
+    "start": "npm run build && node ./build/app.js",
+    "build": "babel . --out-dir build --ignore node_modules"
   },
   "engines": {
     "node": "12.x",
