@@ -3,7 +3,7 @@
   "main": "app.js",
   "scripts": {
     "start": "npm run build && node ./build/app.js",
-    "build": "babel . --out-dir build --ignore node_modules"
+    "build": "babel . --out-dir ./build"
   },
   "engines": {
     "node": "12.x",
